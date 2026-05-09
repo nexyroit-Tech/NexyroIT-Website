@@ -1,7 +1,7 @@
 {
     "name": "masnexyro-website",
     "version": "1.0.0",
-    "homepage": "https://nexyroit-Tech.github.io/NexyroIT-Website",
+    "homepage": ".",
     "private": true,
     "dependencies": {
         "framer-motion": "^10.16.4",
