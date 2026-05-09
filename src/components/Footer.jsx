@@ -68,10 +68,10 @@ const Footer = () => {
                     <div>
                         <h3 className="text-lg font-semibold mb-4">Contact</h3>
                         <ul className="space-y-2 text-gray-400">
-                            <li>hello@nexyroit.com</li>
-                            <li>+1 (555) 123-4567</li>
-                            <li>123 Tech Street, Innovation City</li>
-                            <li>Tech State, 12345</li>
+                            <li>nexyroit@gmail.com</li>
+                            <li>+92 339 5022555</li>
+                            <li>Islamabad, Pakistan</li>
+                            <li>Islamabad, 44000</li>
                         </ul>
                     </div>
                 </div>
