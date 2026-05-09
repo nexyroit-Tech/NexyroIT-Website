@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+    * {
+        @apply m-0 p-0 box-border;
+    }
+
+    body {
+        @apply font-sans antialiased;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+@layer components {
+
+    /* Glassmorphism Card */
+    .glass-card {
+        @apply bg-white/70 dark:bg-primary/80 backdrop-blur-glass border border-white/30 dark:border-white/10 rounded-2xl p-8 shadow-glass dark:shadow-glass-dark transition-all duration-300;
+    }
+
+    .glass-card:hover {
+        @apply transform -translate-y-1;
+    }
+
+    /* Buttons */
+    .btn-primary {
+        @apply bg-gradient-to-br from-secondary to-accent text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg hover:shadow-secondary/30;
+    }
+
+    .btn-outline {
+        @apply border-2 border-secondary text-secondary bg-transparent px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-secondary hover:text-white;
+    }
+
+    /* Navigation */
+    .nav-link {
+        @apply relative font-medium transition-colors duration-200 text-gray-700 dark:text-gray-300 hover:text-secondary dark:hover:text-light-accent;
+    }
+
+    .nav-link::after {
+        content: '';
+        @apply absolute w-0 h-0.5 bottom-[-5px] left-0 bg-secondary dark:bg-light-accent transition-all duration-300;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+        @apply w-full;
+    }
+
+    /* Gradient Text */
+    .gradient-text {
+        @apply bg-gradient-to-br from-secondary to-accent bg-clip-text text-transparent;
+    }
+
+    /* Page Header */
+    .page-header {
+        @apply pt-32 pb-20 px-5 text-center bg-gradient-to-b from-soft-bg/50 dark:from-primary/50 to-transparent;
+    }
+
+    /* Section Padding */
+    .section-padding {
+        @apply py-20 px-5;
+    }
+
+    /* Grid Layouts */
+    .grid-3 {
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+    }
+
+    .grid-4 {
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8;
+    }
+}
+
+@layer utilities {
+
+    /* Custom Scrollbar */
+    .custom-scrollbar::-webkit-scrollbar {
+        @apply w-2.5;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        @apply bg-primary;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        @apply bg-secondary rounded-full;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        @apply bg-accent;
+    }
+
+    /* Fade In Animation */
+    .fade-in {
+        @apply opacity-0 translate-y-5 transition-all duration-700 ease-out;
+    }
+
+    .fade-in.visible {
+        @apply opacity-100 translate-y-0;
+    }
+
+    /* Stagger Delays */
+    .delay-100 {
+        transition-delay: 100ms;
+    }
+
+    .delay-200 {
+        transition-delay: 200ms;
+    }
+
+    .delay-300 {
+        transition-delay: 300ms;
+    }
+
+    .delay-400 {
+        transition-delay: 400ms;
+    }
+}
+
+/* Dark Mode Specific Styles */
+.dark body {
+    @apply bg-primary text-gray-100;
+}
+
+.light body {
+    @apply bg-gray-50 text-gray-900;
+}
+
+/* Custom Selection Color */
+::selection {
+    @apply bg-secondary/30 text-secondary dark:bg-light-accent/30 dark:text-light-accent;
+}
