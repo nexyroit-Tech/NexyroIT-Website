@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 import { FaArrowRight, FaCode, FaRocket, FaLightbulb, FaStar } from 'react-icons/fa';
@@ -13,6 +13,36 @@ const Home = () => {
     const [ref1, inView1] = useInView({ triggerOnce: true, threshold: 0.3 });
     const [ref2, inView2] = useInView({ triggerOnce: true, threshold: 0.3 });
     const [ref3, inView3] = useInView({ triggerOnce: true, threshold: 0.3 });
+
+    // Hero Slider state
+    const heroSlides = [
+        {
+            heading: "Engineering the",
+            highlight: "Future Digital",
+            suffix: "World",
+            description: "We transform innovative ideas into powerful digital solutions. Join us in shaping tomorrow's technology today.",
+        },
+        {
+            heading: "Cutting-Edge",
+            highlight: "Web & Mobile",
+            suffix: "Development",
+            description: "Scalable, secure, and visually stunning applications tailored to elevate your business.",
+        },
+        {
+            heading: "Creative Design",
+            highlight: "That Inspires",
+            suffix: "Growth",
+            description: "Crafting memorable brand identities and user experiences that captivate your audience.",
+        }
+    ];
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, [heroSlides.length]);
 
     // Testimonials state
     const [testimonials, setTestimonials] = useState([]);
@@ -94,27 +124,56 @@ const Home = () => {
                 </div>
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+                    <div className="min-h-[280px] md:min-h-[220px] flex flex-col justify-center mb-8 relative">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={currentSlide}
+                                initial={{ opacity: 0, x: 50 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -50 }}
+                                transition={{ duration: 0.5, ease: "easeOut" }}
+                                className="w-full"
+                            >
+                                <h1 className="text-5xl md:text-7xl font-bold text-[#2C3531] dark:text-white mb-6 leading-tight">
+                                    {heroSlides[currentSlide].heading}{' '}
+                                    <span className="gradient-text">{heroSlides[currentSlide].highlight}</span>{' '}
+                                    {heroSlides[currentSlide].suffix}
+                                </h1>
+                                <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                                    {heroSlides[currentSlide].description}
+                                </p>
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
+
+                    {/* Slide Indicators */}
+                    <div className="flex justify-center gap-2 mb-10">
+                        {heroSlides.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => setCurrentSlide(index)}
+                                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                                    currentSlide === index 
+                                        ? 'bg-[#116466] dark:bg-[#D9B08C] w-8' 
+                                        : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400'
+                                }`}
+                                aria-label={`Go to slide ${index + 1}`}
+                            />
+                        ))}
+                    </div>
+
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                        className="flex flex-col sm:flex-row gap-4 justify-center"
                     >
-                        <h1 className="text-5xl md:text-7xl font-bold text-[#2C3531] dark:text-white mb-6 leading-tight">
-                            Engineering the{' '}
-                            <span className="gradient-text">Future Digital</span> World
-                        </h1>
-                        <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-                            We transform innovative ideas into powerful digital solutions.
-                            Join us in shaping tomorrow's technology today.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Link to="/contact" className="btn-primary inline-flex items-center justify-center">
-                                Get Started <FaArrowRight className="ml-2" />
-                            </Link>
-                            <Link to="/projects" className="btn-secondary inline-flex items-center justify-center">
-                                View Our Work
-                            </Link>
-                        </div>
+                        <Link to="/contact" className="btn-primary inline-flex items-center justify-center">
+                            Get Started <FaArrowRight className="ml-2" />
+                        </Link>
+                        <Link to="/projects" className="btn-secondary inline-flex items-center justify-center">
+                            View Our Work
+                        </Link>
                     </motion.div>
 
                     {/* Stats */}
