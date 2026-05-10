@@ -14,7 +14,7 @@ const Footer = () => {
                             <img
                                 src="/images/logo.png"
                                 alt="Nexyro IT Logo"
-                                className="h-12 w-auto object-contain transition-all duration-300 dark:bg-white/95 dark:p-1.5 dark:rounded-xl dark:shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+                                className="h-12 w-auto object-contain transition-all duration-300 bg-white/95 p-1.5 rounded-xl shadow-[0_0_15px_rgba(255,255,255,0.1)]"
                             />
                         </div>
                         <p className="text-gray-400 mb-4 max-w-md">
