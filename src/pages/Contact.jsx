@@ -13,14 +13,40 @@ const Contact = () => {
         message: ''
     });
     const [submitted, setSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setSubmitted(true);
-        setTimeout(() => {
-            setSubmitted(false);
-            setFormData({ name: '', email: '', subject: '', message: '' });
-        }, 3000);
+        setIsSubmitting(true);
+        try {
+            const response = await fetch("https://formsubmit.co/ajax/nexyroIT@gmail.com", {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    subject: formData.subject,
+                    message: formData.message,
+                    _subject: `New Contact Form Message from ${formData.name}`
+                })
+            });
+            
+            if (response.ok) {
+                setSubmitted(true);
+                setFormData({ name: '', email: '', subject: '', message: '' });
+                setTimeout(() => setSubmitted(false), 5000);
+            } else {
+                alert("Failed to send message. Please try again.");
+            }
+        } catch (error) {
+            console.error("Error submitting form", error);
+            alert("Failed to send message. Please try again.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -206,8 +232,16 @@ const Contact = () => {
                                             />
                                         </div>
 
-                                        <button type="submit" className="w-full btn-primary py-4 text-lg">
-                                            Send Message
+                                        <button 
+                                            type="submit" 
+                                            disabled={isSubmitting}
+                                            className="w-full btn-primary py-4 text-lg disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center"
+                                        >
+                                            {isSubmitting ? (
+                                                <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                                            ) : (
+                                                'Send Message'
+                                            )}
                                         </button>
                                     </form>
                                 )}
