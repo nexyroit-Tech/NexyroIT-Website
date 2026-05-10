@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from 'react-icons/fa';
@@ -13,41 +13,18 @@ const Contact = () => {
         message: ''
     });
     const [submitted, setSubmitted] = useState(false);
-    const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setIsSubmitting(true);
-        try {
-            const response = await fetch("https://formsubmit.co/ajax/nexyroit@gmail.com", {
-                method: "POST",
-                headers: { 
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    name: formData.name,
-                    email: formData.email,
-                    subject: formData.subject,
-                    message: formData.message,
-                    _subject: `New Contact Form Message from ${formData.name}`
-                })
-            });
-            
-            if (response.ok) {
-                setSubmitted(true);
-                setFormData({ name: '', email: '', subject: '', message: '' });
-                setTimeout(() => setSubmitted(false), 5000);
-            } else {
-                alert("Failed to send message. Please try again.");
-            }
-        } catch (error) {
-            console.error("Error submitting form", error);
-            alert("Failed to send message. Please try again.");
-        } finally {
-            setIsSubmitting(false);
+    useEffect(() => {
+        // Check if we just returned from a successful form submission
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true') {
+            setSubmitted(true);
+            // Clean up the URL
+            window.history.replaceState({}, document.title, window.location.pathname);
+            // Hide message after 5 seconds
+            setTimeout(() => setSubmitted(false), 5000);
         }
-    };
+    }, []);
 
     return (
         <>
@@ -174,7 +151,13 @@ const Contact = () => {
                                         <p>Your message has been sent successfully. We'll get back to you soon.</p>
                                     </div>
                                 ) : (
-                                    <form onSubmit={handleSubmit} className="space-y-6">
+                                    <form action="https://formsubmit.co/nexyroit@gmail.com" method="POST" className="space-y-6">
+                                        {/* FormSubmit Configuration */}
+                                        <input type="hidden" name="_next" value={window.location.href + "?success=true"} />
+                                        <input type="hidden" name="_captcha" value="false" />
+                                        <input type="hidden" name="_subject" value="New Contact Form Submission!" />
+                                        <input type="hidden" name="_template" value="table" />
+
                                         <div className="grid md:grid-cols-2 gap-6">
                                             <div>
                                                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -182,6 +165,7 @@ const Contact = () => {
                                                 </label>
                                                 <input
                                                     type="text"
+                                                    name="name"
                                                     required
                                                     value={formData.name}
                                                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -195,6 +179,7 @@ const Contact = () => {
                                                 </label>
                                                 <input
                                                     type="email"
+                                                    name="email"
                                                     required
                                                     value={formData.email}
                                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -210,6 +195,7 @@ const Contact = () => {
                                             </label>
                                             <input
                                                 type="text"
+                                                name="subject"
                                                 required
                                                 value={formData.subject}
                                                 onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
@@ -223,6 +209,7 @@ const Contact = () => {
                                                 Message *
                                             </label>
                                             <textarea
+                                                name="message"
                                                 rows="6"
                                                 required
                                                 value={formData.message}
@@ -234,14 +221,9 @@ const Contact = () => {
 
                                         <button 
                                             type="submit" 
-                                            disabled={isSubmitting}
-                                            className="w-full btn-primary py-4 text-lg disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center"
+                                            className="w-full btn-primary py-4 text-lg flex justify-center items-center"
                                         >
-                                            {isSubmitting ? (
-                                                <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                                            ) : (
-                                                'Send Message'
-                                            )}
+                                            Send Message
                                         </button>
                                     </form>
                                 )}
