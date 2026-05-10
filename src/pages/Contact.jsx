@@ -19,7 +19,7 @@ const Contact = () => {
         e.preventDefault();
         setIsSubmitting(true);
         try {
-            const response = await fetch("https://formsubmit.co/ajax/nexyroIT@gmail.com", {
+            const response = await fetch("https://formsubmit.co/ajax/nexyroit@gmail.com", {
                 method: "POST",
                 headers: { 
                     'Content-Type': 'application/json',
@@ -113,7 +113,7 @@ const Contact = () => {
                                     </div>
                                     <div>
                                         <h3 className="text-lg font-bold text-[#2C3531] dark:text-white mb-2">Email</h3>
-                                        <p className="text-gray-600 dark:text-gray-400">hello@nexyroit.com</p>
+                                        <p className="text-gray-600 dark:text-gray-400">nexyroit@gmail.com</p>
                                     </div>
                                 </div>
                             </motion.div>
