@@ -8,7 +8,7 @@ export const team = [
         social: {
             linkedin: "https://www.linkedin.com/in/nexyro-it-undefined-596938409",
             twitter: "https://x.com/NexyroIT",
-            github: "#"
+            github: "https://github.com/nexyroit-Tech"
         }
     },
     {
@@ -20,7 +20,7 @@ export const team = [
         social: {
             linkedin: "https://www.linkedin.com/in/nexyro-it-undefined-596938409",
             twitter: "https://x.com/NexyroIT",
-            github: "#"
+            github: "https://github.com/nexyroit-Tech"
         }
     },
     {
@@ -32,7 +32,7 @@ export const team = [
         social: {
             linkedin: "https://www.linkedin.com/in/nexyro-it-undefined-596938409",
             twitter: "https://x.com/NexyroIT",
-            github: "#"
+            github: "https://github.com/nexyroit-Tech"
         }
     },
     {
@@ -44,7 +44,7 @@ export const team = [
         social: {
             linkedin: "https://www.linkedin.com/in/nexyro-it-undefined-596938409",
             twitter: "https://x.com/NexyroIT",
-            github: "#"
+            github: "https://github.com/nexyroit-Tech"
         }
     }
 ];

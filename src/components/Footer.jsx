@@ -28,7 +28,7 @@ const Footer = () => {
                             <a href="https://x.com/NexyroIT" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#D9B08C] transition-colors">
                                 <FaTwitter size={24} />
                             </a>
-                            <a href="#" className="text-gray-400 hover:text-[#D9B08C] transition-colors">
+                            <a href="https://github.com/nexyroit-Tech" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#D9B08C] transition-colors">
                                 <FaGithub size={24} />
                             </a>
                             <a href="https://www.instagram.com/nexyroit" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#D9B08C] transition-colors">
@@ -77,7 +77,13 @@ const Footer = () => {
                 </div>
 
                 <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                    <p>&copy; {currentYear} Nexyro IT. All rights reserved.</p>
+                    <p>
+                        &copy; {currentYear}{' '}
+                        <Link to="/admin" className="cursor-default hover:text-gray-300 transition-colors">
+                            Nexyro IT
+                        </Link>
+                        . All rights reserved.
+                    </p>
                 </div>
             </div>
         </footer>

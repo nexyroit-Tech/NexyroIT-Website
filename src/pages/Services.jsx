@@ -84,7 +84,7 @@ const Services = () => {
 
                     <div className="grid md:grid-cols-4 gap-8">
                         {[
-                            { step: '01', title: 'Discovery', desc: 'Understanding your needs and goals' },
+                            { step: '01', title: 'Requirement', desc: 'Understanding your needs and goals' },
                             { step: '02', title: 'Planning', desc: 'Creating a strategic roadmap' },
                             { step: '03', title: 'Development', desc: 'Building your solution' },
                             { step: '04', title: 'Launch', desc: 'Deploying and supporting' }

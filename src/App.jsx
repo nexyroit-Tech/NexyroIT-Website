@@ -11,6 +11,7 @@ import Projects from './pages/Projects';
 import Services from './pages/Services';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
+import Admin from './pages/Admin';
 
 function App() {
     const [loading, setLoading] = useState(true);
@@ -64,6 +65,7 @@ function App() {
                             <Route path="/services" element={<Services />} />
                             <Route path="/careers" element={<Careers />} />
                             <Route path="/contact" element={<Contact />} />
+                            <Route path="/admin" element={<Admin />} />
                         </Routes>
                     </main>
                     <Footer />

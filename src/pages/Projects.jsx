@@ -40,7 +40,7 @@ const Projects = () => {
             </section>
 
             {/* Filter Section */}
-            <section className="py-12 bg-white dark:bg-[#2C3531] sticky top-20 z-30 shadow-md">
+            <section className="py-12 bg-white dark:bg-[#2C3531]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-wrap justify-center gap-4">
                         {categories.map((category) => (

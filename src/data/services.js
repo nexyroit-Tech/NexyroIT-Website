@@ -3,14 +3,14 @@ import { FaCode, FaPalette, FaTools, FaMobileAlt, FaPaintBrush, FaBullhorn } fro
 export const services = [
     {
         id: 1,
-        title: "Web Development",
-        icon: FaCode,
-        description: "Custom web applications built with modern frameworks and best practices for scalability and performance.",
+        title: "Graphic Design",
+        icon: FaPaintBrush,
+        description: "Creative and impactful visual designs that communicate your brand's message effectively.",
         features: [
-            "Responsive Design",
-            "Progressive Web Apps",
-            "E-Commerce Solutions",
-            "CMS Development"
+            "Brand Identity & Logos",
+            "Marketing Materials",
+            "Social Media Graphics",
+            "Print Design"
         ]
     },
     {
@@ -27,7 +27,7 @@ export const services = [
     },
     {
         id: 3,
-        title: "App & Website Maintenance",
+        title: "Website and App Maintenance",
         icon: FaTools,
         description: "Comprehensive maintenance services to keep your digital products running smoothly, securely, and efficiently.",
         features: [
@@ -50,14 +50,14 @@ export const services = [
     },
     {
         id: 5,
-        title: "Graphic Design",
-        icon: FaPaintBrush,
-        description: "Creative and impactful visual designs that communicate your brand's message effectively.",
+        title: "Web Development",
+        icon: FaCode,
+        description: "Custom web applications built with modern frameworks and best practices for scalability and performance.",
         features: [
-            "Brand Identity & Logos",
-            "Marketing Materials",
-            "Social Media Graphics",
-            "Print Design"
+            "Responsive Design",
+            "Progressive Web Apps",
+            "E-Commerce Solutions",
+            "CMS Development"
         ]
     },
     {

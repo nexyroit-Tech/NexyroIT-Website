@@ -53,7 +53,7 @@ const SEO = ({ title, description, keywords, image, url }) => {
                     "sameAs": [
                         "https://linkedin.com/company/nexyroit",
                         "https://twitter.com/nexyroit",
-                        "https://github.com/nexyroit"
+                        "https://github.com/nexyroit-Tech"
                     ]
                 })}
             </script>

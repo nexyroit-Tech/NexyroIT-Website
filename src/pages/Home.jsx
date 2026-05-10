@@ -1,15 +1,66 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
-import { FaArrowRight, FaCode, FaRocket, FaLightbulb } from 'react-icons/fa';
+import { FaArrowRight, FaCode, FaRocket, FaLightbulb, FaStar } from 'react-icons/fa';
 import SEO from '../components/SEO';
 import { services } from '../data/services';
 import { projects } from '../data/projects';
+import { db } from '../firebase';
+import { collection, query, where, orderBy, onSnapshot, addDoc, serverTimestamp } from 'firebase/firestore';
 
 const Home = () => {
     const [ref1, inView1] = useInView({ triggerOnce: true, threshold: 0.1 });
     const [ref2, inView2] = useInView({ triggerOnce: true, threshold: 0.1 });
     const [ref3, inView3] = useInView({ triggerOnce: true, threshold: 0.1 });
+
+    // Testimonials state
+    const [testimonials, setTestimonials] = useState([]);
+    const [showFeedbackForm, setShowFeedbackForm] = useState(false);
+    const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
+    const [hoverRating, setHoverRating] = useState(0);
+    const [feedbackData, setFeedbackData] = useState({
+        name: '', role: '', content: '', rating: 5
+    });
+
+    // Fetch approved testimonials from Firebase
+    useEffect(() => {
+        const q = query(
+            collection(db, 'testimonials'),
+            where('status', '==', 'approved')
+        );
+        const unsubscribe = onSnapshot(q, (snapshot) => {
+            const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            // Sort by date in JavaScript to avoid Firestore composite index requirement
+            data.sort((a, b) => {
+                const timeA = a.createdAt?.toMillis ? a.createdAt.toMillis() : 0;
+                const timeB = b.createdAt?.toMillis ? b.createdAt.toMillis() : 0;
+                return timeB - timeA;
+            });
+            setTestimonials(data);
+        });
+        return () => unsubscribe();
+    }, []);
+
+    // Submit feedback
+    const handleFeedbackSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await addDoc(collection(db, 'testimonials'), {
+                ...feedbackData,
+                status: 'pending',
+                createdAt: serverTimestamp()
+            });
+            setFeedbackSubmitted(true);
+            setFeedbackData({ name: '', role: '', content: '', rating: 5 });
+            setTimeout(() => {
+                setFeedbackSubmitted(false);
+                setShowFeedbackForm(false);
+            }, 3000);
+        } catch (error) {
+            console.error('Error submitting feedback:', error);
+        }
+    };
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -257,44 +308,141 @@ const Home = () => {
                         <div className="w-20 h-1 bg-[#D9B08C] mx-auto rounded-full" />
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-8">
-                        {[
-                            {
-                                name: "Michael Roberts",
-                                role: "CEO, TechStart Inc.",
-                                content: "Nexyro IT transformed our digital presence completely. Their team's expertise and dedication exceeded our expectations."
-                            },
-                            {
-                                name: "Emily Zhang",
-                                role: "Product Manager, InnovateCo",
-                                content: "The AI solution they built for us has increased our efficiency by 300%. Truly exceptional work!"
-                            },
-                            {
-                                name: "David Kumar",
-                                role: "Founder, Digital Dynamics",
-                                content: "Professional, innovative, and reliable. Nexyro IT is our go-to partner for all tech projects."
-                            }
-                        ].map((testimonial, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: index * 0.2 }}
-                                viewport={{ once: true }}
-                                className="glass p-8 rounded-2xl"
+                    {testimonials.length > 0 ? (
+                        <div className="grid md:grid-cols-3 gap-8">
+                            {testimonials.slice(0, 6).map((testimonial, index) => (
+                                <motion.div
+                                    key={testimonial.id}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, delay: index * 0.2 }}
+                                    viewport={{ once: true }}
+                                    className="glass p-8 rounded-2xl"
+                                >
+                                    <div className="flex items-center mb-4">
+                                        {[...Array(5)].map((_, i) => (
+                                            <FaStar
+                                                key={i}
+                                                className={i < (testimonial.rating || 5) ? 'text-[#FFCB9A]' : 'text-gray-500'}
+                                            />
+                                        ))}
+                                    </div>
+                                    <p className="text-gray-300 mb-6 italic">"{testimonial.content}"</p>
+                                    <div>
+                                        <div className="font-bold">{testimonial.name}</div>
+                                        <div className="text-sm text-gray-400">{testimonial.role}</div>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="text-center py-8">
+                            <p className="text-gray-400 text-lg">Be the first to share your experience with us!</p>
+                        </div>
+                    )}
+
+                    {/* Share Feedback Button & Form */}
+                    <div className="text-center mt-12">
+                        {!showFeedbackForm ? (
+                            <button
+                                onClick={() => setShowFeedbackForm(true)}
+                                className="inline-flex items-center px-8 py-4 bg-[#D9B08C] text-[#2C3531] rounded-lg font-bold text-lg hover:bg-[#FFCB9A] transition-colors"
                             >
-                                <div className="flex items-center mb-4">
-                                    {[...Array(5)].map((_, i) => (
-                                        <span key={i} className="text-[#FFCB9A]">★</span>
-                                    ))}
-                                </div>
-                                <p className="text-gray-300 mb-6 italic">"{testimonial.content}"</p>
-                                <div>
-                                    <div className="font-bold">{testimonial.name}</div>
-                                    <div className="text-sm text-gray-400">{testimonial.role}</div>
-                                </div>
+                                Share Your Experience ✍️
+                            </button>
+                        ) : (
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="max-w-xl mx-auto glass p-8 rounded-2xl text-left"
+                            >
+                                {feedbackSubmitted ? (
+                                    <div className="text-center py-6">
+                                        <div className="text-5xl mb-4">🎉</div>
+                                        <h3 className="text-2xl font-bold text-white mb-2">Thank You!</h3>
+                                        <p className="text-gray-300">Your feedback has been submitted and is under review.</p>
+                                    </div>
+                                ) : (
+                                    <form onSubmit={handleFeedbackSubmit} className="space-y-5">
+                                        <h3 className="text-2xl font-bold text-white text-center mb-2">Share Your Feedback</h3>
+
+                                        {/* Star Rating */}
+                                        <div className="text-center">
+                                            <label className="block text-sm font-medium text-gray-300 mb-2">Your Rating</label>
+                                            <div className="flex justify-center space-x-2">
+                                                {[1, 2, 3, 4, 5].map((star) => (
+                                                    <button
+                                                        key={star}
+                                                        type="button"
+                                                        onClick={() => setFeedbackData({ ...feedbackData, rating: star })}
+                                                        onMouseEnter={() => setHoverRating(star)}
+                                                        onMouseLeave={() => setHoverRating(0)}
+                                                        className="text-3xl transition-transform hover:scale-125"
+                                                    >
+                                                        <FaStar
+                                                            className={
+                                                                star <= (hoverRating || feedbackData.rating)
+                                                                    ? 'text-[#FFCB9A]'
+                                                                    : 'text-gray-500'
+                                                            }
+                                                        />
+                                                    </button>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <label className="block text-sm font-medium text-gray-300 mb-1">Your Name *</label>
+                                            <input
+                                                type="text"
+                                                required
+                                                value={feedbackData.name}
+                                                onChange={(e) => setFeedbackData({ ...feedbackData, name: e.target.value })}
+                                                className="w-full px-4 py-3 rounded-lg border border-white/20 bg-white/10 text-white placeholder-gray-400 focus:ring-2 focus:ring-[#D9B08C] focus:border-transparent"
+                                                placeholder="John Doe"
+                                            />
+                                        </div>
+
+                                        <div>
+                                            <label className="block text-sm font-medium text-gray-300 mb-1">Role / Company *</label>
+                                            <input
+                                                type="text"
+                                                required
+                                                value={feedbackData.role}
+                                                onChange={(e) => setFeedbackData({ ...feedbackData, role: e.target.value })}
+                                                className="w-full px-4 py-3 rounded-lg border border-white/20 bg-white/10 text-white placeholder-gray-400 focus:ring-2 focus:ring-[#D9B08C] focus:border-transparent"
+                                                placeholder="CEO, TechStart Inc."
+                                            />
+                                        </div>
+
+                                        <div>
+                                            <label className="block text-sm font-medium text-gray-300 mb-1">Your Feedback *</label>
+                                            <textarea
+                                                rows="4"
+                                                required
+                                                value={feedbackData.content}
+                                                onChange={(e) => setFeedbackData({ ...feedbackData, content: e.target.value })}
+                                                className="w-full px-4 py-3 rounded-lg border border-white/20 bg-white/10 text-white placeholder-gray-400 focus:ring-2 focus:ring-[#D9B08C] focus:border-transparent"
+                                                placeholder="Tell us about your experience..."
+                                            />
+                                        </div>
+
+                                        <div className="flex space-x-3">
+                                            <button type="submit" className="flex-1 bg-[#D9B08C] text-[#2C3531] py-3 rounded-lg font-bold hover:bg-[#FFCB9A] transition-colors">
+                                                Submit Feedback
+                                            </button>
+                                            <button
+                                                type="button"
+                                                onClick={() => setShowFeedbackForm(false)}
+                                                className="px-6 py-3 border border-white/30 rounded-lg text-white hover:bg-white/10 transition-colors"
+                                            >
+                                                Cancel
+                                            </button>
+                                        </div>
+                                    </form>
+                                )}
                             </motion.div>
-                        ))}
+                        )}
                     </div>
                 </div>
             </section>
