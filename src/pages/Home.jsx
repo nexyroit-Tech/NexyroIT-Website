@@ -7,7 +7,7 @@ import SEO from '../components/SEO';
 import { services } from '../data/services';
 import { projects } from '../data/projects';
 import { db } from '../firebase';
-import { collection, query, where, orderBy, onSnapshot, addDoc, serverTimestamp } from 'firebase/firestore';
+import { collection, query, where, onSnapshot, addDoc, serverTimestamp } from 'firebase/firestore';
 
 const Home = () => {
     const [ref1, inView1] = useInView({ triggerOnce: true, threshold: 0.1 });
