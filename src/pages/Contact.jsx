@@ -5,7 +5,7 @@ import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from 'react-icons/fa';
 import SEO from '../components/SEO';
 
 const Contact = () => {
-    const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+    const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -36,7 +36,7 @@ const Contact = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.8 }}
                         className="text-center"
                     >
                         <h1 className="text-5xl md:text-6xl font-bold text-[#2C3531] dark:text-white mb-6">
@@ -58,7 +58,7 @@ const Contact = () => {
                             <motion.div
                                 initial={{ opacity: 0, x: -30 }}
                                 animate={inView ? { opacity: 1, x: 0 } : {}}
-                                transition={{ duration: 0.6 }}
+                                transition={{ duration: 0.8 }}
                                 className="glass p-6 rounded-2xl"
                             >
                                 <div className="flex items-start space-x-4">
@@ -78,7 +78,7 @@ const Contact = () => {
                             <motion.div
                                 initial={{ opacity: 0, x: -30 }}
                                 animate={inView ? { opacity: 1, x: 0 } : {}}
-                                transition={{ duration: 0.6, delay: 0.2 }}
+                                transition={{ duration: 0.8, delay: 0.2 }}
                                 className="glass p-6 rounded-2xl"
                             >
                                 <div className="flex items-start space-x-4">
@@ -95,7 +95,7 @@ const Contact = () => {
                             <motion.div
                                 initial={{ opacity: 0, x: -30 }}
                                 animate={inView ? { opacity: 1, x: 0 } : {}}
-                                transition={{ duration: 0.6, delay: 0.4 }}
+                                transition={{ duration: 0.8, delay: 0.4 }}
                                 className="glass p-6 rounded-2xl"
                             >
                                 <div className="flex items-start space-x-4">
@@ -112,7 +112,7 @@ const Contact = () => {
                             <motion.div
                                 initial={{ opacity: 0, x: -30 }}
                                 animate={inView ? { opacity: 1, x: 0 } : {}}
-                                transition={{ duration: 0.6, delay: 0.6 }}
+                                transition={{ duration: 0.8, delay: 0.6 }}
                                 className="glass p-6 rounded-2xl"
                             >
                                 <div className="flex items-start space-x-4">
@@ -135,7 +135,7 @@ const Contact = () => {
                             <motion.div
                                 initial={{ opacity: 0, x: 30 }}
                                 animate={inView ? { opacity: 1, x: 0 } : {}}
-                                transition={{ duration: 0.6 }}
+                                transition={{ duration: 0.8 }}
                                 className="glass p-8 rounded-2xl"
                             >
                                 <h2 className="text-3xl font-bold text-[#2C3531] dark:text-white mb-6">

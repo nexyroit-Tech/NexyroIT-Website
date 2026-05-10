@@ -5,8 +5,8 @@ import SEO from '../components/SEO';
 import { team } from '../data/team';
 
 const About = () => {
-    const [ref1, inView1] = useInView({ triggerOnce: true, threshold: 0.1 });
-    const [ref2, inView2] = useInView({ triggerOnce: true, threshold: 0.1 });
+    const [ref1, inView1] = useInView({ triggerOnce: true, threshold: 0.3 });
+    const [ref2, inView2] = useInView({ triggerOnce: true, threshold: 0.3 });
 
     const milestones = [
         { year: '2020', title: 'Foundation', description: 'Nexyro IT was founded with a vision to transform digital innovation' },
@@ -29,7 +29,7 @@ const About = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.8 }}
                         className="text-center"
                     >
                         <h1 className="text-5xl md:text-6xl font-bold text-[#2C3531] dark:text-white mb-6">
@@ -49,7 +49,7 @@ const About = () => {
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             animate={inView1 ? { opacity: 1, x: 0 } : {}}
-                            transition={{ duration: 0.6 }}
+                            transition={{ duration: 0.8 }}
                             className="glass p-8 rounded-2xl"
                         >
                             <div className="w-16 h-16 bg-[#116466] rounded-full flex items-center justify-center mb-6">
@@ -66,7 +66,7 @@ const About = () => {
                         <motion.div
                             initial={{ opacity: 0, x: 30 }}
                             animate={inView1 ? { opacity: 1, x: 0 } : {}}
-                            transition={{ duration: 0.6, delay: 0.2 }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
                             className="glass p-8 rounded-2xl"
                         >
                             <div className="w-16 h-16 bg-[#D9B08C] rounded-full flex items-center justify-center mb-6">
@@ -100,7 +100,7 @@ const About = () => {
                                 key={index}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: index * 0.2 }}
+                                transition={{ duration: 0.8, delay: index * 0.2 }}
                                 viewport={{ once: true }}
                                 className="text-center p-8 glass rounded-2xl"
                             >
@@ -119,7 +119,7 @@ const About = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={inView2 ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.8 }}
                         className="text-center mb-16"
                     >
                         <h2 className="text-4xl font-bold text-[#2C3531] dark:text-white mb-4">About Us</h2>
@@ -132,7 +132,7 @@ const About = () => {
                                 key={member.id}
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={inView2 ? { opacity: 1, y: 0 } : {}}
-                                transition={{ duration: 0.6, delay: index * 0.2 }}
+                                transition={{ duration: 0.8, delay: index * 0.2 }}
                                 className="glass rounded-2xl overflow-hidden card-hover"
                             >
                                 <img
@@ -181,7 +181,7 @@ const About = () => {
                                 key={index}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: index * 0.1 }}
+                                transition={{ duration: 0.8, delay: index * 0.1 }}
                                 viewport={{ once: true }}
                                 className="glass p-6 rounded-2xl border-t-4 border-[#116466] dark:border-[#D9B08C]"
                             >

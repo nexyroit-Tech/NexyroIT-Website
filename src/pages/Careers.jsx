@@ -5,7 +5,7 @@ import { FaMapMarkerAlt, FaClock, FaArrowRight } from 'react-icons/fa';
 import SEO from '../components/SEO';
 
 const Careers = () => {
-    const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+    const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -76,7 +76,7 @@ const Careers = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.8 }}
                         className="text-center"
                     >
                         <h1 className="text-5xl md:text-6xl font-bold text-[#2C3531] dark:text-white mb-6">
@@ -114,7 +114,7 @@ const Careers = () => {
                                 key={index}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: index * 0.2 }}
+                                transition={{ duration: 0.8, delay: index * 0.2 }}
                                 viewport={{ once: true }}
                                 className="glass p-8 rounded-2xl text-center"
                             >
@@ -133,7 +133,7 @@ const Careers = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={inView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.8 }}
                         className="text-center mb-16"
                     >
                         <h2 className="text-4xl font-bold text-[#2C3531] dark:text-white mb-4">
@@ -160,7 +160,7 @@ const Careers = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
                         className="glass p-8 rounded-2xl"
                     >

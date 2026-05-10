@@ -7,7 +7,7 @@ import { projects, categories } from '../data/projects';
 
 const Projects = () => {
     const [filter, setFilter] = useState('All');
-    const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+    const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
 
     const filteredProjects = filter === 'All'
         ? projects
@@ -26,7 +26,7 @@ const Projects = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.8 }}
                         className="text-center"
                     >
                         <h1 className="text-5xl md:text-6xl font-bold text-[#2C3531] dark:text-white mb-6">

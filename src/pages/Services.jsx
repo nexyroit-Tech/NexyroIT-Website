@@ -5,7 +5,7 @@ import SEO from '../components/SEO';
 import { services } from '../data/services';
 
 const Services = () => {
-    const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+    const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
 
     return (
         <>
@@ -20,7 +20,7 @@ const Services = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.8 }}
                         className="text-center"
                     >
                         <h1 className="text-5xl md:text-6xl font-bold text-[#2C3531] dark:text-white mb-6">
@@ -42,7 +42,7 @@ const Services = () => {
                                 key={service.id}
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                                transition={{ duration: 0.6, delay: index * 0.2 }}
+                                transition={{ duration: 0.8, delay: index * 0.2 }}
                                 className="glass p-8 rounded-2xl card-hover"
                             >
                                 <div className="flex items-start space-x-6">
@@ -93,7 +93,7 @@ const Services = () => {
                                 key={index}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: index * 0.2 }}
+                                transition={{ duration: 0.8, delay: index * 0.2 }}
                                 viewport={{ once: true }}
                                 className="text-center"
                             >

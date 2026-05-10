@@ -10,9 +10,9 @@ import { db } from '../firebase';
 import { collection, query, where, onSnapshot, addDoc, serverTimestamp } from 'firebase/firestore';
 
 const Home = () => {
-    const [ref1, inView1] = useInView({ triggerOnce: true, threshold: 0.1 });
-    const [ref2, inView2] = useInView({ triggerOnce: true, threshold: 0.1 });
-    const [ref3, inView3] = useInView({ triggerOnce: true, threshold: 0.1 });
+    const [ref1, inView1] = useInView({ triggerOnce: true, threshold: 0.3 });
+    const [ref2, inView2] = useInView({ triggerOnce: true, threshold: 0.3 });
+    const [ref3, inView3] = useInView({ triggerOnce: true, threshold: 0.3 });
 
     // Testimonials state
     const [testimonials, setTestimonials] = useState([]);
@@ -75,7 +75,7 @@ const Home = () => {
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.6 }
+            transition: { duration: 0.8 }
         }
     };
 
@@ -148,7 +148,7 @@ const Home = () => {
                         ref={ref1}
                         initial={{ opacity: 0, y: 30 }}
                         animate={inView1 ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.8 }}
                         className="text-center mb-16"
                     >
                         <h2 className="text-4xl font-bold text-[#2C3531] dark:text-white mb-4">
@@ -161,7 +161,7 @@ const Home = () => {
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             animate={inView1 ? { opacity: 1, x: 0 } : {}}
-                            transition={{ duration: 0.6, delay: 0.2 }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
                         >
                             <h3 className="text-3xl font-bold text-[#2C3531] dark:text-white mb-4">
                                 Building Tomorrow's Technology Today
@@ -183,7 +183,7 @@ const Home = () => {
                         <motion.div
                             initial={{ opacity: 0, x: 30 }}
                             animate={inView1 ? { opacity: 1, x: 0 } : {}}
-                            transition={{ duration: 0.6, delay: 0.4 }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
                             className="relative"
                         >
                             <div className="absolute inset-0 bg-gradient-to-r from-[#116466] to-[#D9B08C] rounded-2xl transform rotate-3 opacity-20" />
@@ -204,7 +204,7 @@ const Home = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={inView2 ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.8 }}
                         className="text-center mb-16"
                     >
                         <h2 className="text-4xl font-bold text-[#2C3531] dark:text-white mb-4">
@@ -252,7 +252,7 @@ const Home = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={inView3 ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.8 }}
                         className="text-center mb-16"
                     >
                         <h2 className="text-4xl font-bold text-[#2C3531] dark:text-white mb-4">
@@ -315,7 +315,7 @@ const Home = () => {
                                     key={testimonial.id}
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.6, delay: index * 0.2 }}
+                                    transition={{ duration: 0.8, delay: index * 0.2 }}
                                     viewport={{ once: true }}
                                     className="glass p-8 rounded-2xl"
                                 >
