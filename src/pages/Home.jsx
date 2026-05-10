@@ -118,9 +118,25 @@ const Home = () => {
 
             {/* Hero Section */}
             <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#D1E8E2] via-[#FFCB9A]/20 to-[#D9B08C]/20 dark:from-[#2C3531] dark:via-[#116466]/20 dark:to-[#2C3531]">
-                <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#116466]/20 rounded-full blur-3xl animate-pulse" />
-                    <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#D9B08C]/20 rounded-full blur-3xl animate-pulse delay-1000" />
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    <motion.div 
+                        animate={{ 
+                            y: [0, -50, 0], 
+                            x: [0, 30, 0],
+                            scale: [1, 1.1, 1] 
+                        }}
+                        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute -top-40 -right-40 w-96 h-96 bg-[#116466]/20 rounded-full blur-3xl" 
+                    />
+                    <motion.div 
+                        animate={{ 
+                            y: [0, 50, 0], 
+                            x: [0, -30, 0],
+                            scale: [1, 1.2, 1]
+                        }}
+                        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute -bottom-40 -left-40 w-96 h-96 bg-[#D9B08C]/20 rounded-full blur-3xl" 
+                    />
                 </div>
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
