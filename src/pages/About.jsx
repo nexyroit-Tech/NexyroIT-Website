@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaRocket, FaBullseye, FaEye, FaUsers } from 'react-icons/fa';
+import { FaRocket, FaBullseye, FaEye, FaUsers, FaHeart, FaLightbulb, FaShieldAlt } from 'react-icons/fa';
 import SEO from '../components/SEO';
-import { team } from '../data/team';
 
 const About = () => {
     const [ref1, inView1] = useInView({ triggerOnce: true, threshold: 0.3 });
@@ -113,49 +112,76 @@ const About = () => {
                 </div>
             </section>
 
-            {/* Team Section */}
-            <section className="py-20 bg-white dark:bg-[#2C3531]" ref={ref2}>
+            {/* Our Story Section */}
+            <section className="py-24 bg-white dark:bg-[#2C3531]" ref={ref2}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={inView2 ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.8 }}
-                        className="text-center mb-16"
-                    >
-                        <h2 className="text-4xl font-bold text-[#2C3531] dark:text-white mb-4">About Us</h2>
-                        <p className="text-gray-600 dark:text-gray-300">The visionaries behind Nexyro IT</p>
-                    </motion.div>
+                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            animate={inView2 ? { opacity: 1, x: 0 } : {}}
+                            transition={{ duration: 0.8 }}
+                        >
+                            <span className="text-[#116466] dark:text-[#D9B08C] font-bold tracking-wider uppercase text-sm mb-4 block">
+                                Beyond the Code
+                            </span>
+                            <h2 className="text-4xl md:text-5xl font-bold text-[#2C3531] dark:text-white mb-8 leading-tight">
+                                Our Story & <span className="gradient-text">Commitment</span>
+                            </h2>
+                            <div className="space-y-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                                <p>
+                                    At Nexyro IT, we are more than just a technology provider; we are your partners in digital evolution. 
+                                    Founded with a vision to bridge the gap between complex problems and elegant solutions, our journey 
+                                    is defined by a relentless passion for innovation.
+                                </p>
+                                <p>
+                                    We believe that every line of code we write and every interface we design should serve a greater 
+                                    purpose: empowering businesses to reach their full potential in an ever-changing digital landscape. 
+                                    Our dedication goes beyond project delivery; it's about building lasting relationships based on 
+                                    trust, transparency, and shared success.
+                                </p>
+                                <p className="italic font-medium text-[#116466] dark:text-[#D9B08C] border-l-4 border-[#116466] dark:border-[#D9B08C] pl-6 py-2">
+                                    "We don't just build software; we engineer the foundations of tomorrow's digital landscape 
+                                    with heart, soul, and technical precision."
+                                </p>
+                            </div>
+                        </motion.div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {team.map((member, index) => (
-                            <motion.div
-                                key={member.id}
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={inView2 ? { opacity: 1, y: 0 } : {}}
-                                transition={{ duration: 0.8, delay: index * 0.2 }}
-                                className="glass rounded-2xl overflow-hidden card-hover"
-                            >
-                                <img
-                                    src={member.image}
-                                    alt={member.name}
-                                    className="w-full h-80 object-cover object-top"
-                                    loading="lazy"
-                                />
-                                <div className="p-6">
-                                    <h3 className="text-2xl font-bold text-[#2C3531] dark:text-white mb-1">{member.name}</h3>
-                                    <p className="text-[#116466] dark:text-[#D9B08C] font-medium mb-3">{member.role}</p>
-                                    <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">{member.bio}</p>
-                                    <div className="flex space-x-4">
-                                        <a href={member.social.linkedin} className="text-gray-400 hover:text-[#116466]">
-                                            LinkedIn
-                                        </a>
-                                        <a href={member.social.twitter} className="text-gray-400 hover:text-[#116466]">
-                                            Twitter
-                                        </a>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={inView2 ? { opacity: 1, scale: 1 } : {}}
+                            transition={{ duration: 1 }}
+                            className="relative"
+                        >
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="space-y-4 pt-12">
+                                    <div className="glass p-6 rounded-2xl transform hover:-translate-y-2 transition-transform duration-300">
+                                        <FaHeart className="text-3xl text-[#116466] dark:text-[#D9B08C] mb-4" />
+                                        <h4 className="font-bold text-[#2C3531] dark:text-white mb-2">Passion</h4>
+                                        <p className="text-sm text-gray-500">Love for what we create</p>
+                                    </div>
+                                    <div className="glass p-6 rounded-2xl transform hover:-translate-y-2 transition-transform duration-300 bg-[#116466] text-white">
+                                        <FaLightbulb className="text-3xl mb-4" />
+                                        <h4 className="font-bold mb-2">Innovation</h4>
+                                        <p className="text-sm text-gray-100">Thinking ahead of time</p>
                                     </div>
                                 </div>
-                            </motion.div>
-                        ))}
+                                <div className="space-y-4">
+                                    <div className="glass p-6 rounded-2xl transform hover:-translate-y-2 transition-transform duration-300 bg-[#D9B08C] text-[#2C3531]">
+                                        <FaUsers className="text-3xl mb-4" />
+                                        <h4 className="font-bold mb-2">Dedication</h4>
+                                        <p className="text-sm text-[#2C3531]/70">Committed to your goal</p>
+                                    </div>
+                                    <div className="glass p-6 rounded-2xl transform hover:-translate-y-2 transition-transform duration-300">
+                                        <FaShieldAlt className="text-3xl text-[#116466] dark:text-[#D9B08C] mb-4" />
+                                        <h4 className="font-bold text-[#2C3531] dark:text-white mb-2">Integrity</h4>
+                                        <p className="text-sm text-gray-500">Ethics in every step</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            {/* Decorative background element */}
+                            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#116466]/10 rounded-full blur-3xl" />
+                        </motion.div>
                     </div>
                 </div>
             </section>
