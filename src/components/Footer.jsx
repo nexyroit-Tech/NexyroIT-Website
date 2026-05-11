@@ -73,7 +73,11 @@ const Footer = () => {
                                     nexyroit@gmail.com
                                 </a>
                             </li>
-                            <li>+92 339 5022555</li>
+                            <li>
+                                <a href="https://wa.me/923395022555" target="_blank" rel="noopener noreferrer" className="hover:text-[#D9B08C] transition-colors">
+                                    +92 339 5022555
+                                </a>
+                            </li>
                             <li>Islamabad, Pakistan</li>
                             <li>Islamabad, 44000</li>
                         </ul>

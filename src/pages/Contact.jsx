@@ -111,7 +111,11 @@ const Contact = () => {
                                     </div>
                                     <div>
                                         <h3 className="text-lg font-bold text-[#2C3531] dark:text-white mb-2">Phone</h3>
-                                        <p className="text-gray-600 dark:text-gray-400">+92 339 5022555</p>
+                                        <p className="text-gray-600 dark:text-gray-400">
+                                            <a href="https://wa.me/923395022555" target="_blank" rel="noopener noreferrer" className="hover:text-[#116466] dark:hover:text-[#D9B08C] transition-colors">
+                                                +92 339 5022555
+                                            </a>
+                                        </p>
                                     </div>
                                 </div>
                             </motion.div>
