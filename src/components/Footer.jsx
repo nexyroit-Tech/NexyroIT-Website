@@ -68,7 +68,11 @@ const Footer = () => {
                     <div>
                         <h3 className="text-lg font-semibold mb-4">Contact</h3>
                         <ul className="space-y-2 text-gray-400">
-                            <li>nexyroit@gmail.com</li>
+                            <li>
+                                <a href="mailto:nexyroit@gmail.com" className="hover:text-[#D9B08C] transition-colors">
+                                    nexyroit@gmail.com
+                                </a>
+                            </li>
                             <li>+92 339 5022555</li>
                             <li>Islamabad, Pakistan</li>
                             <li>Islamabad, 44000</li>

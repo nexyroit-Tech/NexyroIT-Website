@@ -90,7 +90,11 @@ const Contact = () => {
                                     </div>
                                     <div>
                                         <h3 className="text-lg font-bold text-[#2C3531] dark:text-white mb-2">Email</h3>
-                                        <p className="text-gray-600 dark:text-gray-400">nexyroit@gmail.com</p>
+                                        <p className="text-gray-600 dark:text-gray-400">
+                                            <a href="mailto:nexyroit@gmail.com" className="hover:text-[#116466] dark:hover:text-[#D9B08C] transition-colors">
+                                                nexyroit@gmail.com
+                                            </a>
+                                        </p>
                                     </div>
                                 </div>
                             </motion.div>
