@@ -80,6 +80,11 @@ const Footer = () => {
                             </li>
                             <li>Islamabad, Pakistan</li>
                             <li>Islamabad, 44000</li>
+                            <li className="pt-2 text-sm border-t border-gray-700/50 mt-2">
+                                <span className="text-[#D9B08C] block mb-1">Business Hours:</span>
+                                Mon - Sat: 9:00 AM - 10:00 PM<br />
+                                Sunday: Closed
+                            </li>
                         </ul>
                     </div>
                 </div>
