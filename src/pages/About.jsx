@@ -8,13 +8,6 @@ const About = () => {
     const [ref1, inView1] = useInView({ triggerOnce: true, threshold: 0.3 });
     const [ref2, inView2] = useInView({ triggerOnce: true, threshold: 0.3 });
 
-    const milestones = [
-        { year: '2020', title: 'Foundation', description: 'Nexyro IT was founded with a vision to transform digital innovation' },
-        { year: '2021', title: 'First Major Client', description: 'Secured partnership with Fortune 500 company' },
-        { year: '2022', title: 'Team Expansion', description: 'Grew to 15+ talented professionals' },
-        { year: '2023', title: 'AI Division Launch', description: 'Launched dedicated AI and Machine Learning services' },
-        { year: '2024', title: 'Global Recognition', description: 'Awarded Best Tech Startup of the Year' }
-    ];
 
     return (
         <>
