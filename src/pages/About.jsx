@@ -1,3 +1,4 @@
+// Updated About page with inspirational narrative section
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaRocket, FaBullseye, FaEye, FaUsers, FaHeart, FaLightbulb, FaShieldAlt } from 'react-icons/fa';
