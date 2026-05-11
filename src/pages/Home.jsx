@@ -139,7 +139,7 @@ const Home = () => {
                     />
                 </div>
 
-                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+                <div className="relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 py-32 text-center">
                     <div className="min-h-[280px] md:min-h-[220px] flex flex-col justify-center mb-8 relative">
                         <AnimatePresence mode="wait">
                             <motion.div
@@ -150,7 +150,7 @@ const Home = () => {
                                 transition={{ duration: 0.5, ease: "easeOut" }}
                                 className="w-full"
                             >
-                                <h1 className="text-5xl md:text-7xl font-bold text-[#2C3531] dark:text-white mb-6 leading-tight">
+                                <h1 className="text-4xl md:text-7xl font-bold text-[#2C3531] dark:text-white mb-6 leading-tight">
                                     {heroSlides[currentSlide].heading}{' '}
                                     <span className="gradient-text">{heroSlides[currentSlide].highlight}</span>{' '}
                                     {heroSlides[currentSlide].suffix}
@@ -197,7 +197,7 @@ const Home = () => {
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
-                        className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8"
+                        className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8"
                     >
                         {[
                             { number: '50+', label: 'Projects Delivered' },
@@ -218,7 +218,7 @@ const Home = () => {
 
             {/* Introduction Section */}
             <section className="py-20 bg-white dark:bg-[#2C3531]" ref={ref1}>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
                     <motion.div
                         ref={ref1}
                         initial={{ opacity: 0, y: 30 }}
@@ -259,7 +259,7 @@ const Home = () => {
                             initial={{ opacity: 0, x: 30 }}
                             animate={inView1 ? { opacity: 1, x: 0 } : {}}
                             transition={{ duration: 0.8, delay: 0.4 }}
-                            className="relative"
+                            className="relative overflow-hidden rounded-2xl"
                         >
                             <div className="absolute inset-0 bg-gradient-to-r from-[#116466] to-[#D9B08C] rounded-2xl transform rotate-3 opacity-20" />
                             <img
@@ -275,7 +275,7 @@ const Home = () => {
 
             {/* Services Preview */}
             <section className="py-20 bg-[#D1E8E2]/30 dark:bg-[#116466]/10" ref={ref2}>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={inView2 ? { opacity: 1, y: 0 } : {}}
@@ -323,7 +323,7 @@ const Home = () => {
 
             {/* Featured Projects */}
             <section className="py-20 bg-white dark:bg-[#2C3531]" ref={ref3}>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={inView3 ? { opacity: 1, y: 0 } : {}}
@@ -377,7 +377,7 @@ const Home = () => {
 
             {/* Testimonials */}
             <section className="py-20 bg-gradient-to-br from-[#116466] to-[#2C3531] text-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl font-bold mb-4">What Our Clients Say</h2>
                         <div className="w-20 h-1 bg-[#D9B08C] mx-auto rounded-full" />
@@ -524,7 +524,7 @@ const Home = () => {
 
             {/* CTA Section */}
             <section className="py-20 bg-[#D1E8E2] dark:bg-[#2C3531]">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div className="max-w-4xl mx-auto px-6 sm:px-6 lg:px-8 text-center">
                     <h2 className="text-4xl font-bold text-[#2C3531] dark:text-white mb-6">
                         Ready to Start Your Project?
                     </h2>
