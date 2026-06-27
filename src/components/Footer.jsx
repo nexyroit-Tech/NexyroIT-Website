@@ -74,8 +74,8 @@ const Footer = () => {
                                 </a>
                             </li>
                             <li>
-                                <a href="https://wa.me/923221793231" target="_blank" rel="noopener noreferrer" className="hover:text-[#D9B08C] transition-colors">
-                                    +92 3221793231
+                                <a href="https://wa.me/923395022555" target="_blank" rel="noopener noreferrer" className="hover:text-[#D9B08C] transition-colors">
+                                    +92 3395022555
                                 </a>
                             </li>
                             <li>Islamabad, Pakistan</li>
