@@ -3,7 +3,7 @@ export const projects = [
         id: 1,
         title: "E-Commerce Platform",
         category: "Web Development",
-        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800",
+        image: "/images/projects/ecommerce.png",
         description: "Full-stack e-commerce solution with advanced filtering and search",
         techStack: ["React", "Node.js", "MongoDB", "Redux"],
         link: "#"
@@ -12,7 +12,7 @@ export const projects = [
         id: 2,
         title: "Healthcare Mobile App",
         category: "Mobile Apps",
-        image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800",
+        image: "/images/projects/healthcare.png",
         description: "Telemedicine app connecting patients with doctors",
         techStack: ["React Native", "Firebase", "WebRTC"],
         link: "#"
@@ -30,7 +30,7 @@ export const projects = [
         id: 4,
         title: "FinTech Banking App",
         category: "UI/UX Design",
-        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800",
+        image: "/images/projects/fintech.png",
         description: "Modern banking interface with biometric security",
         techStack: ["Figma", "React", "Node.js", "Blockchain"],
         link: "#"
@@ -39,7 +39,7 @@ export const projects = [
         id: 5,
         title: "Smart Home IoT System",
         category: "Web Development",
-        image: "https://images.unsplash.com/photo-1558002038-1055907df827?w=800",
+        image: "/images/projects/iot.png",
         description: "IoT dashboard for home automation and energy management",
         techStack: ["Vue.js", "Python", "MQTT", "Raspberry Pi"],
         link: "#"
