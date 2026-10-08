@@ -1,0 +1,43 @@
+# Nexyro IT - Projects & Portfolio
+
+Nexyro IT has delivered diverse successful digital products across multiple industries:
+
+## Project 1: Full-Stack E-Commerce Platform
+- **Category**: Web Development
+- **Description**: High-capacity e-commerce platform featuring advanced search, product filtering, real-time inventory management, cart system, and payment gateway.
+- **Tech Stack**: React, Node.js, MongoDB, Redux.
+
+## Project 2: Healthcare Telemedicine Mobile App
+- **Category**: Mobile Apps
+- **Description**: Secure mobile app connecting patients with medical specialists for virtual video consultations, prescription delivery, and appointment scheduling.
+- **Tech Stack**: React Native, Firebase, WebRTC.
+
+## Project 3: Enterprise Website & App Maintenance
+- **Category**: Maintenance
+- **Description**: Continuous technical support, zero-downtime server maintenance, bug fixing, and continuous performance optimization for enterprise web and mobile applications.
+- **Tech Stack**: React, Node.js, Performance Tuning, DevOps.
+
+## Project 4: FinTech Banking & Digital Wallet App
+- **Category**: UI/UX Design & Development
+- **Description**: Sleek banking portal and digital wallet featuring biometric login, multi-currency transfer, real-time transaction graphs, and encrypted storage.
+- **Tech Stack**: Figma, React, Node.js, Blockchain integration.
+
+## Project 5: Smart Home IoT Control System
+- **Category**: Web Development & IoT
+- **Description**: Real-time IoT monitoring dashboard for home automation, power consumption analytics, and smart sensor management.
+- **Tech Stack**: Vue.js, Python, MQTT, Raspberry Pi.
+
+## Project 6: Gamified Educational Learning Platform
+- **Category**: Mobile Apps
+- **Description**: Interactive learning mobile application for students with gamified quizzes, progress badges, AI tutoring assistance, and offline support.
+- **Tech Stack**: Flutter, Dart, Firebase, AI Engine.
+
+## Project 7: Corporate Brand Identity Redesign
+- **Category**: Graphic Design & Branding
+- **Description**: Comprehensive corporate rebranding including custom vector logo, brand guidelines manual, business stationary, and physical marketing materials.
+- **Tech Stack**: Adobe Illustrator, Photoshop, InDesign, Figma.
+
+## Project 8: E-Commerce Digital Growth Campaign
+- **Category**: Digital Marketing & SEO
+- **Description**: Data-driven digital marketing campaign that expanded client reach by over 300% within 6 months.
+- **Tech Stack**: Search Engine Optimization (SEO), Google Ads, Meta Ads, Google Analytics.

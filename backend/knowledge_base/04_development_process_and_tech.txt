@@ -1,0 +1,25 @@
+# Nexyro IT - Development Process & Technologies
+
+## Development Methodology & Lifecycle
+Nexyro IT follows an Agile development process structured into 6 clear phases:
+
+1. **Discovery & Requirement Analysis**:
+   - We meet with clients to define project scope, target audience, business goals, and technical prerequisites.
+2. **UI/UX Wireframing & Prototyping**:
+   - Our design team produces wireframes and interactive prototypes in Figma for user testing and client feedback before writing code.
+3. **Architecture & Agile Development**:
+   - Software developers build modular components using sprint cycles (typically 2-week sprints) with regular demo check-ins.
+4. **Quality Assurance & Testing**:
+   - Thorough manual and automated testing, security checks, cross-browser compatibility testing, and mobile responsiveness validation.
+5. **Deployment & Launch**:
+   - Zero-downtime deployment setup using CI/CD pipelines on platforms such as Vercel, AWS, Google Cloud, Docker, or DigitalOcean.
+6. **Support, Maintenance & Scaling**:
+   - Ongoing post-launch maintenance, security monitoring, server health tracking, and iterative feature additions.
+
+## Primary Technology Stack
+- **Frontend**: React, Vue.js, Next.js, HTML5, CSS3, TailwindCSS, JavaScript (ES6+), TypeScript.
+- **Backend & APIs**: Python (FastAPI, Django, Flask), Node.js (Express, NestJS), RESTful APIs, GraphQL.
+- **Mobile**: Flutter, React Native, Native Android (Kotlin / Java), iOS (Swift).
+- **Databases & Storage**: PostgreSQL, MongoDB, MySQL, Firebase Firestore, Redis, Vector Databases (ChromaDB).
+- **DevOps & Cloud**: Docker, AWS, Vercel, GitHub Actions, NGINX, Cloudflare.
+- **Design Tools**: Figma, Adobe Illustrator, Adobe Photoshop, Adobe InDesign.

@@ -14,6 +14,7 @@ import Careers from './pages/Careers';
 import Contact from './pages/Contact';
 import Admin from './pages/Admin';
 import PageTransition from './components/PageTransition';
+import NexyroAIChatbot from './components/NexyroAIChatbot';
 
 const AnimatedRoutes = () => {
     const location = useLocation();
@@ -80,6 +81,7 @@ function App() {
                         <AnimatedRoutes />
                     </main>
                     <Footer />
+                    <NexyroAIChatbot />
                 </div>
             </Router>
         </HelmetProvider>

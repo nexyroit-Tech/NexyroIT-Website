@@ -1,0 +1,16 @@
+fastapi>=0.104.0
+uvicorn>=0.23.2
+pydantic>=2.4.2
+pydantic-settings>=2.0.3
+python-dotenv>=1.0.0
+google-generativeai>=0.3.1
+requests>=2.31.0
+python-multipart>=0.0.6
+pypdf>=3.17.0
+google-api-python-client>=2.100.0
+google-auth-httplib2>=0.1.1
+google-auth-oauthlib>=1.1.0
+
+# ChromaDB — install separately if your Python version supports it (<=3.13)
+# py -m pip install chromadb
+# If on Python 3.14+, the JSON fallback vector store is used automatically.

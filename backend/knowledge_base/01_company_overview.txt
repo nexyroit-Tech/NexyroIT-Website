@@ -1,0 +1,22 @@
+# Nexyro IT - Company Overview
+
+## Company Introduction
+Nexyro IT is a premier software development and digital transformation agency based in Islamabad, Pakistan. We specialize in turning bold ideas into scalable, high-performance digital products. Our expertise spans modern web development, mobile app development (iOS & Android), UI/UX design, software development, maintenance, and strategic digital marketing.
+
+## Contact & Business Information
+- **Location / Address**: Islamabad, Pakistan (Postal Code: 44000)
+- **Official Email**: nexyroit@gmail.com
+- **Phone / WhatsApp**: +92 3221793231
+- **Business Hours**: Monday to Saturday: 9:00 AM - 10:00 PM PKT | Sunday: Closed
+- **Official Website**: https://nexyroit.com (Deployed at: https://nexyro-it-website.vercel.app)
+
+## Mission & Vision
+At Nexyro IT, our mission is to empower businesses worldwide by building cutting-edge, resilient, and user-centric digital solutions. We combine design excellence with robust technical architecture to deliver software that scales effortlessly.
+
+## Core Capabilities
+- Web Application & Website Development
+- Mobile Application Development (Android, iOS, Cross-Platform)
+- UI/UX Wireframing, Prototyping & Visual Design
+- Website & App Maintenance, Security Monitoring & Performance Tuning
+- Brand Identity Design & Graphic Design
+- Digital Marketing, Content Strategy & Search Engine Optimization (SEO)
